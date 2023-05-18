@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 100px;
+    grid-template-areas: 
+    "h"
+    "m"
+    "f";
+}
+
+header{
+    grid-area: h;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > a img{
+    height: 80px;
+}
+
+main{
+    grid-area: m;
+    background-color:rgb(101, 243, 243);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    flex-direction: column;
+    padding: 180px;
+}
+
+footer{
+    grid-area: f;
+    background-color:aqua;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    display: flex;
+    height: 22%;
+    flex-direction: column;
+}
+
+.card > img{
+    width: 350px;
+    background-color: aqua;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.cards > p{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+}
+.icone{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+main > a{
+    margin-top: 20px;
+    background-color: #1497CB;
+    padding: 30px 60px;
+    border-radius: 20px;
+    text-decoration: none;
+}

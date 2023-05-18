@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:aqua;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px auto  100px;
+    grid-template-areas: 
+    "h h"
+    "s m"
+    "f f";
+}
+
+header{
+    grid-area: h;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > a img{
+    height: 80px;
+}
+
+section{
+    grid-area: s;
+    background-color: #1497CB; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section > img{
+    height: 510px;
+  
+}
+
+main{
+    grid-area: m;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(101, 243, 243);
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+main > h1{
+   font-size: 3rem;
+   padding: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form > label{
+    margin: 10px 0;
+}
+
+form > input{
+    font-size: 2rem;
+    background-color: aqua;
+    border-radius: 10px;
+}
+
+form > input:focus{
+    padding-left: 60px;
+}
+
+form > label{
+    font-size: 2rem;
+}
+
+input[type="submit"]{
+    margin-top: 20px;
+    background-color: #1497CB;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+footer{
+    grid-area: f;
+    background-color: aqua;
+}
+
+#inome{
+    background-image: url(imagens/User.png);
+    background-repeat: no-repeat;
+}
+
+#iemail{
+    background-image: url(imagens/Email.png);
+    background-repeat: no-repeat;
+}
+
+#isenha{
+    background-image: url(imagens/Lock.png);
+    background-repeat: no-repeat;
+}
+
+@media(max-width:800px) {
+
+    
+.container{
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 100px  auto auto  100px;
+    grid-template-areas: 
+    "h"
+    "m"
+    "s"
+    "f";
+}
+    
+}
