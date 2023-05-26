@@ -1,5 +1,5 @@
 const formulario = document.getElementById("formulario");
-const msg = document.querySelector(".imensagem");
+const msg = document.querySelector(".imensagem")
 const nome = document.getElementById("inome");
 const email = document.getElementById("iemail");
 const senha = document.getElementById("isenha");
@@ -62,3 +62,4 @@ function criarUsuario(evento){
     setTimeout(()=>{window.location.assign("login.html");},2000)
     
 }
+

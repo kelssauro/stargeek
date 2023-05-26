@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro do Titulo</title>
-    <link rel="stylesheet" href="catalogotitulo.css">
+    <link rel="stylesheet" href="cadastroitem.css">
 </head>
 <body>
     <div class="container">
@@ -14,19 +14,21 @@
     </header>
     <main>
         <h1>CADASTRO DO TÍTULO</h1>
-        <form action="catalogo.html">
+        <div class="formulario"></div>
+        <form action="">
             <label for="">Nome do Título</label>
-            <input type="text" id="inome">
+            <input type="text" id="nome">
             <label for="">Classificação</label>
-            <input type="classificação" id="iclassificação">
+            <input type="classificacao" id="classificacao">
             <label for="">Descrição do Título</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <input type="file">
-            <input type="submit" value="Cadastrar">
+            <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+            <input type="file" id="foto">
+            <input type="submit" value="Cadastrar" id="botao">
         </form>
     </main>
     <footer></footer>
 
     </div>
+    <script src="cadastroitem.js"></script>
 </body>
 </html>
