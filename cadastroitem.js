@@ -3,6 +3,9 @@ const classificacao = document.getElementById("classificacao")
 const descricao = document.getElementById("descricao");
 const botao = document.getElementById("botao");
 
+var emaillogado;
+femailLogado();
+
 var url = new URL(window.location.href);
 var peditar = url.searchParams.get("peditar");
 var pindice = url.searchParams.get("indice");
@@ -13,9 +16,8 @@ if (peditar == "true"){
 
 botao.onclick = (evento) => {
 
+    
     if ((peditar != "true") || (peditar == null)){
-
-        
     evento.preventDefault();
     fenvio()
     .then(result =>{
@@ -26,7 +28,8 @@ dados.push(
         nome : nome.value,
         descricao : descricao.value,
         classificacao : classificacao.value,
-        foto : nomeArq
+        foto : nomeArq,
+        email: emaillogado
     }
     )
     localStorage.setItem("catalogo", JSON.stringify(dados));
@@ -49,37 +52,38 @@ function editar(indice){
     nome.value = "";
     descricao.value = "";
     classificacao.value = "";
-    foto.files[0] = null;
     let dados = JSON.parse(localStorage.getItem("catalogo"));
     nome.value = dados[indice].nome;
     descricao.value = dados[indice].descricao;
     classificacao.value = dados[indice].classificacao;
-    fotoa.value = dados[indice].foto;
+    fotoa = dados[indice].foto;
+   
 }
 
 var fotoa;
 function editarenvio(evento){
     evento.preventDefault();
-    if((fotoa != foto.value)&&(foto.value != "")){
 
+    if((fotoa != foto.value)&&(foto.value != "")){
         fenvio()
         .then(result => {
                         if(result){
                             salvaEdicao(nomeArq);
                         }
                         })
-    } else{
+    } else {
         salvaEdicao(fotoa);
     }
+       
 }
 
 function salvaEdicao(pfoto){
     let dados = JSON.parse(localStorage.getItem("catalogo"));
-    dados[pindice].nome = nome.value;
-    dados[pindice].descricao = descricao.value;
-    dados[pindice].foto = foto.value;
-    dados[pindice].classificacao  = classificacao.value;
-
+    dados[pindice].nome = nome.value,
+    dados[pindice].descricao = descricao.value,
+    dados[pindice].foto = pfoto,
+    dados[pindice].classificacao  = classificacao.value,
+    dados[pindice].email  = emaillogado
 }
 
 
@@ -111,5 +115,14 @@ async function fenvio() {
         return false;
     }
 
+}
+
+function femailLogado(){
+    let dados = sessionStorage.getItem("logado");
+    if (dados == null){
+        window.location.assign("login.html");
+    } else{
+        emaillogado = dados;
+    }
 }
 
